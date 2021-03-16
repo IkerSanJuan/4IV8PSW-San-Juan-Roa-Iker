@@ -1,0 +1,53 @@
+
+:root{
+    --body-bg-color:#75B9BE;
+    --text-color:#e0e4e4;
+    --red:#EE7674;
+}
+
+*{
+    padding: 0%;
+    margin:0;
+    color: black;
+    text-align: center;
+    font-family:sans-serif;
+}
+
+hr{
+    height: 8px;
+    background-color: var(--body-bg-color);
+    margin: 100px 0;
+}
+
+html, body{
+    background-color: var(--text-color);
+    zoom: 150%;
+}
+
+.main-container{
+    border-radius: 10px;
+    margin : 2rem;
+}
+
+section, footer, article{
+    margin : 1rem;
+    border-radius: 10px;
+    padding: 0rem;
+}
+
+article{
+    width: 50%;
+    display: inline-block;
+    height: 150px;
+    align-items: center;
+}
+
+footer{
+    background-color: #75B9BE;
+}
+
+.tabla{
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+}
