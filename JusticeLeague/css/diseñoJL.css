@@ -5,17 +5,13 @@
     background-color: rgb(0, 0, 0);
 }
 
-#radius{
-    border-radius: 100%;
-}
-
 .bi, .si, .wi, .ai, .fi, .ci{
     border-radius: 50%;
+    display:inline-flex;
 }
 
 #tablasup{
     text-align: center;
-    display: inline-block;
     width: 45%;
 }
 
@@ -26,10 +22,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-
 }
+
 .style_prevu_kit{
-    display: inline-block;
+    display:inline-flex;
     border: 0;
     width: 196px;
     height: 134px;
@@ -42,6 +38,7 @@
     -moz-transform: scale(1);
     transition: all  200ms ease-in;
     transform: scale(1);
+    border-radius: 100%;
 }
 
 .style_prevu_kit:hover{
