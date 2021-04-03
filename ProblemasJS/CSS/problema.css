@@ -1,0 +1,52 @@
+#tabla{
+    display:inline-flex;
+    border-collapse:collapse;
+}
+
+.td_sup{
+    align-items: left;
+    width: 100;
+    justify-content: left;
+}
+
+.td_inf{
+    align-items: center;
+    justify-content: center;
+    width: 150;
+}
+
+.input_text{
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    size: 12;
+    border-width: 2px;
+    border-style: solid;
+    color: #009900;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+*{
+    background-color: #000000;
+    zoom: 115%;
+    color: #ffffff;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p{
+    padding: 30px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#subt {
+    border: 2px solid khaki;
+    height: 2px;
+    background-color: darkkhaki;
+}
+
+.gi{
+    border-radius: 50%;
+}
