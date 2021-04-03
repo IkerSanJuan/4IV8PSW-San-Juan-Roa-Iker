@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Problema 01 JavaScript</title>
-    <link rel="stylesheet" href="./CSS/problema.css">
+    <link rel="stylesheet" href="./ProblemasJS/CSS/problema.css">
     <script src="JS/problema01.js"></script>
+    <link rel="icon" href="./ProblemasJS/img/logojs.png">
 </head>
 <body>
 
@@ -18,21 +19,19 @@
     </p>  
     
     <form method="POST" name="formulario">
-        <table align="center" border="1">
+        <table align="center" border="1" name="tabla">
             <tr>
                 <td class="td_sup">Introduce la cantidad a invertir : $</td>
-                <td class="td_inf"><input type="text" name="cantidad"
+                <td class="td_inf"><input type="text" name="dinero" id="cantidad"
                      onkeypress="return validarn(event)"></td>
             </tr>
             <tr>
                 <td></td>
-                <td class="td_inf"><input type="button" value="interes"
-                     name="enviar" onclick="interes()"></td>
+                <td class="td_inf"><input type="button" value="Interes" onclick="interes()"></td>
             </tr>
             <tr>
-                <td "td_sup">Su saldo total con interes al 2% es: </td>
-                <td><input type="text" name="sueldoti" 
-                     id="cantidadi" readonly="readonly" 
+                <td class="td_sup">Su saldo total con interes al 2% es: </td>
+                <td><input type="text" name="sueldoti" id="cantidadi" readonly="readonly" 
                       class="input_text"></td>
             </tr>
             <tr>
@@ -42,7 +41,19 @@
             </tr>
         </table>
         <br>
-        <a href="formulario.html">Regresar al formulario principal</a>
+        <footer id="Dp" >
+            <hr id="subt">
+            <table width="20%" cellpadding="10" align="center">
+                <tr>
+                   <td>
+                    <a href="formulario.html">Ir a formulario</a>
+                   </td> 
+                   <td>
+                    <a href="./ProblemasJS/menuJS.html"><img src="./ProblemasJS/img/regresar.png" alt="Regresar al Menu" height="25" width="29" class="ri"></a>
+                   </td>
+                </tr>
+            </table>
+        </footer>
     </form>
     
 </body>
