@@ -64,10 +64,14 @@ public class Registro extends HttpServlet {
                     + "Tu edad es: " + edad
                     + "<br>"
                     + "Tu correo electronico es: " + correo);
-            out.print("<br>"
-                    + "IP local :"
+             out.println("<br>"
+                    + "IP local :" + ip
                     + "<br>"
-                    + "Puerto Local :");
+                    + "Puerto Local :" + puerto
+                    + "<br>"
+                    + "IP Remota :" +iph
+                    + "<br>"
+                    + "Puerto Romoto :" +puertoh);
             out.println("<h1>Registro Exitosos</h1>"
                     + "<a href='index.html'>Regresar a la pagina principal</a>");
             out.println("</body>");
