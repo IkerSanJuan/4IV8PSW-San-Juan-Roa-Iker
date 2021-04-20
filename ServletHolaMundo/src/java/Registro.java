@@ -10,13 +10,45 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import javax.servlet.ServletConfig;
 /**
  *
  * @author user
  */
 public class Registro extends HttpServlet {
 
+    private Connection con;
+    private Statement set;
+    private ResultSet rs;
+            
+    public void init(ServletConfig cfg) throws ServletException{
+        
+        String URL = "jdbc:mysql://localhost/registro4iv8";
+        //driver:gestor:puerto//IP/nombreDB
+        
+        String userName = "root";
+        String password = "6IdeJ5SJ9R";
+        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            con = DriverManager.getConnection(URL,userName,password);
+            set = con.createStatement();
+            System.out.println("Conexion exitosa");
+            
+        }catch(Exception e){
+            
+            System.out.println("Conexion no exitosa");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            
+        }
+    }
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,34 +80,63 @@ public class Registro extends HttpServlet {
             iph = request.getRemoteAddr();
             puertoh = request.getRemotePort();
             
+            //insert into  nombre_tabla(definicion_atributo, definicion_atributo, ...);
+            //values ("valores_cadena", valores_numericos, .....);
             
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Registro</title>");            
-            out.println("</head>");
-            out.println("<body>"
-                    + "Tu nombre es: " + nom);
-            out.print("<br>"
-                    + "Tu apellido paterno es: " + appat
-                    + "<br>"
-                    + "Tu apellido materno es: " + apmat
-                    + "<br>"
-                    + "Tu edad es: " + edad
-                    + "<br>"
-                    + "Tu correo electronico es: " + correo);
-             out.println("<br>"
-                    + "IP local :" + ip
-                    + "<br>"
-                    + "Puerto Local :" + puerto
-                    + "<br>"
-                    + "IP Remota :" +iph
-                    + "<br>"
-                    + "Puerto Romoto :" +puertoh);
-            out.println("<h1>Registro Exitosos</h1>"
-                    + "<a href='index.html'>Regresar a la pagina principal</a>");
-            out.println("</body>");
-            out.println("</html>");
+            try{
+                
+                String q = "insert into Mregistro "
+                        + "(nom_usu, appat_usu, apmat_usu, edad_usu, correo_usu)"
+                        + "values ('"+nom+"', '"+appat+"', '"+apmat+"', "+edad+", '"+correo+"')";
+                
+                set.executeUpdate(q);
+                
+                System.out.println("Registro exitoso");
+                
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet Registro</title>");            
+                out.println("</head>");
+                out.println("<body>"
+                        + "Tu nombre es: " + nom);
+                out.print("<br>"
+                        + "Tu apellido paterno es: " + appat
+                        + "<br>"
+                        + "Tu apellido materno es: " + apmat
+                        + "<br>"
+                        + "Tu edad es: " + edad
+                        + "<br>"
+                        + "Tu correo electronico es: " + correo);
+                 out.println("<br>"
+                        + "IP local :" + ip
+                        + "<br>"
+                        + "Puerto Local :" + puerto
+                        + "<br>"
+                        + "IP Remota :" +iph
+                        + "<br>"
+                        + "Puerto Romoto :" +puertoh);
+                out.println("<h1>Registro Exitosos</h1>"
+                        + "<a href='index.html'>Regresar a la pagina principal</a>");
+                out.println("</body>");
+                out.println("</html>");
+            }catch(Exception e){
+                
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet Registro</title>");            
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>Registro No Exitosos, vuelva a intentarlo</h1>"
+                        + "<a href='index.html'>Regresar a la pagina principal</a>");
+                out.println("</body>");
+                out.println("</html>");
+                
+                System.out.println("No se registro en la tabla");
+                System.out.println(e.getMessage());
+                System.out.println(e.getStackTrace());
+            }
         }
     }
 
