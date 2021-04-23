@@ -129,7 +129,9 @@ public class Registro extends HttpServlet {
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1>Registro No Exitosos, vuelva a intentarlo</h1>"
-                        + "<a href='index.html'>Regresar a la pagina principal</a>");
+                        + "<a href='index.html'>Regresar a la pagina principal</a>"
+                        + "<br>"
+                        + "<a href='Consultar'>Consultar Tabla General de Usuario</a>");
                 out.println("</body>");
                 out.println("</html>");
                 
@@ -174,6 +176,16 @@ public class Registro extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+    
+    public void destroy(){
+        try{
+            con.close();
+        }catch(Exception e){
+            super.destroy();
+            
+        }
+    }
+    
     @Override
     public String getServletInfo() {
         return "Short description";
