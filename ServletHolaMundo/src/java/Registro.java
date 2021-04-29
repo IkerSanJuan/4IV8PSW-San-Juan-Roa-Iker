@@ -129,7 +129,8 @@ public class Registro extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Servlet Registro</title>");            
+                out.println("<title>Servlet Registro</title>"
+                        + "<link rel=\"stylesheet\" href=\"./CSS/cssINFO.css\">");            
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1>Registro No Exitosos, vuelva a intentarlo</h1>"
