@@ -1,0 +1,21 @@
+body{
+    background-color: graytext;
+    font-family: arial;
+    zoom: 125%;
+    color: black;
+    text-align: center;
+}
+
+hr{
+    border: 2px solid khaki; height: 2px; background-color: darkkhaki;
+}
+
+table{
+    text-align: center;
+}
+
+.containerRegistro{
+
+    align-items: center;
+    width: 100%;
+}

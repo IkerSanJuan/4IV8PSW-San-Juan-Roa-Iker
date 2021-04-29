@@ -9,47 +9,88 @@ and open the template in the editor.
             <title>Registro de usuarios</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./CSS/cssINFO.css">
+        <script src="JS/validacionInfo.js" ></script>
     </head>
     <body>
         <div class="container">
             
             <div class="containerRegistro">
-               <form name="formulario" method="get"
-                action="Registro">
-                <label>Nombre:</label>
-                <input type="text" name="nombre">
-                <br>
-                <label>Apellido Paterno:</label>
-                <input type="text" name="appat">
-                <br>
-                <label>Apellido Paterno:</label>
-                <input type="text" name="appmat">
-                <br>
-                <label>Edad:</label>
-                <input type="number" name="edad" min="01" max="99" size="2">
-                <br>
-                <label>Correo</label>
-                <input type="email" name="correo">
-                <br>
-                <input type="submit" value="Registro de Usuarios">
-                <input type="reset" value="Borrar Registro">
-            </form> 
+                <h1>CRUD</h1>
+                <hr>
+                <h2>REGISTRAR USUARIO</h2>
+                <form name="formulario" method="get"
+                    action="Registro" onsubmit="return validare(formulario)">
+                    <label>Nombre:</label>
+                    <input type="text" name="nombre" onkeypress="return validarp(event)">
+                    <br>
+                    <label>Apellido Paterno:</label>
+                    <input type="text" name="appat" onkeypress="return validarp(event)">
+                    <br>
+                    <label>Apellido Paterno:</label>
+                    <input type="text" name="appmat" onkeypress="return validarp(event)">
+                    <br>
+                    <label>Edad:</label>
+                    <input type="number" name="edad" min="01" max="99" size="2" onkeypress="return validarn(event)">
+                    <br>
+                    <label>Correo</label>
+                    <input type="email" name="correo" onkeypress="return validarcR(event)">
+                    <br>
+                    <br>
+                    <input type="submit" value="Registro de Usuarios">
+                    <input type="reset" value="Borrar Registro">
+                </form> 
             </div>
             <br>
+            <hr>
             <div class="containerConsulta">
                 <br>
+                <h2>CONSULTAR USUARIOS</h2>
                 <form method="get" name="consultarregistro" action="Consultar">
-                    <input type="submit" value="Consultar Tabla de Usuarios">
+                    <input type="submit" value="Consultar Tabla de Usuarios" >
                 </form>
             </div>
             <br>
+            <hr>
             <div class="containerEliminar">
                 <br>
+                <h2>BORRAR USUARIO</h2>
                 <form method="post" name="formularioeliminar" action="Eliminar">
                     <label>ID del Usuario a Eliminar</label>
-                    <input type="number" name="ideliminar">
+                    <input type="number" name="ideliminar" onkeypress="return validarn(event)">
+                    <br>
                     <br>
                     <input type="submit" value="Eliminar Usuario">
+                </form>
+            </div>
+            <br>
+            <hr>
+            <div class="containerActualizar">
+                <br>
+                <h2>MODIFICAR USUARIO</h2>
+                <form method="post" name="actualizarregistro" action="Actualizar">
+                    <label>ID del Usuario a Actualizar</label>
+                    <input type="number" name="idactualizar">
+                    <br>
+                        <label>Nombre:</label>
+                        <input type="text" name="nombre_a" onkeypress="return validarp(event)">
+                        <br>
+                        <label>Apellido Paterno:</label>
+                        <input type="text" name="appat_a" onkeypress="return validarp(event)">
+                        <br>
+                        <label>Apellido Paterno:</label>
+                        <input type="text" name="appmat_a" onkeypress="return validarp(event)">
+                        <br>
+                        <label>Edad:</label>
+                        <input type="number" name="edad_a" min="01" max="99" size="2" onkeypress="return validarn(event)">
+                        <br>
+                        <label>Correo</label>
+                        <input type="email" name="correo_a" onkeypress="return validarcA(event)">
+                        <br>
+                    <br>
+                    <br>
+                    <input type="submit" value="Actualizar Usuario">
+                    <input type="reset" value="Borrar Datos" >
                 </form>
             </div>
         </div>

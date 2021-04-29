@@ -6,7 +6,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -87,6 +86,7 @@ public class Eliminar extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
@@ -100,14 +100,15 @@ public class Eliminar extends HttpServlet {
             //preparo mi sentencia
             //delete from tabla where atributo = valor
             
-            String q = "delete from mregistro where id_usu = "+id;
+            String q = "delete from mregistro where id_usu = "+id+";";
             
             
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Eliminar</title>");            
+            out.println("<title>Servlet Eliminar</title>"
+                    + "<link rel=\"stylesheet\" href=\"./CSS/cssINFO.css\">");            
             out.println("</head>");
             out.println("<body>");
             
@@ -116,10 +117,10 @@ public class Eliminar extends HttpServlet {
                 
                 set.executeUpdate(q);
                 System.out.println("Registro eliminado");
-            out.println("<h1>Usuario Eliminado</h1>");
-             set.close();
+                out.println("<h1>Usuario Eliminado</h1>");
+                //set.close();
             }catch(Exception e){
-            out.println("<h1>Usuario No Eliminado</h1>");
+                out.println("<h1>Usuario No Eliminado</h1>");
                 System.out.println("No se pudo eliminar el usuario");
                 System.out.println(e.getMessage());
                 System.out.println(e.getStackTrace());
@@ -129,9 +130,10 @@ public class Eliminar extends HttpServlet {
             
             
             out.println("<br>"
+                    + "<hr>"
+                    + "<br>"
                     + "<a href='index.html'>Regresar a la pagina principal</a>"
                     + "<br>"
-                    + "<a href='Registro'>Insertar nuevo Usuario</a>"
                     + "<br>"
                     + "<a href='Consultar'>Consultar Tabla General de Usuarios</a>");
             out.println("</body>");
@@ -145,8 +147,9 @@ public class Eliminar extends HttpServlet {
      * @return a String containing servlet description
      */
     
-        public void destroy(){
+    public void destroy(){
         try{
+            set.close();
             con.close();
         }catch(Exception e){
             super.destroy();

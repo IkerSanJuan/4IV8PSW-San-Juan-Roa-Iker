@@ -81,11 +81,12 @@ public class Consultar extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Consultar</title>");            
+            out.println("<title>Servlet Consultar</title>"
+                    + "<link rel=\"stylesheet\" href=\"./CSS/cssINFO.css\">");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Tabla General de Usuarios</h1>");
-            out.println("<table border='2'>"
+            out.println("<table border='2' align=center>"
                     + "<thead>"
                         + "<tr><th>ID</th>"
                         + "<th>Nombre Completo</th>"
@@ -99,7 +100,7 @@ public class Consultar extends HttpServlet {
                 
                 //tenemos que crear la querry
                 
-                String q = "select * from mregistro";
+                String q = "select * from mregistro;";
                 
                 set = con.createStatement();
                 rs = set.executeQuery(q);
@@ -137,9 +138,9 @@ public class Consultar extends HttpServlet {
             
             
             out.println("<br>"
-                    + "<a href='index.html'>Regresar a la pagina principal</a>"
+                    + "<hr>"
                     + "<br>"
-                    + "<a href='Registro'>Insertar nuevo Usuario</a>");
+                    + "<a href='index.html'>Regresar a la pagina principal</a>");
             out.println("</body>");
             out.println("</html>");
         }
