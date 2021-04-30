@@ -28,11 +28,11 @@ public class Actualizar extends HttpServlet {
             
     public void init(ServletConfig cfg) throws ServletException{
         
-        String URL = "jdbc:mysql://us-cdbr-east-03.cleardb.com/registro4iv8";
+        String URL = "jdbc:mysql://localhost/registro4iv8";
         //driver:gestor:puerto//IP/nombreDB
         
-        String userName = "ba0172e16d2433";
-        String password = "2dfefa6a";
+        String userName = "root";
+        String password = "6IdeJ5SJ9R";
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
