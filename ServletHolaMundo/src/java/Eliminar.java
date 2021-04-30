@@ -31,8 +31,8 @@ public class Eliminar extends HttpServlet {
         String URL = "jdbc:mysql://localhost/registro4iv8";
         //driver:gestor:puerto//IP/nombreDB
         
-        String userName = "ba0172e16d2433";
-        String password = "2dfefa6a";
+        String userName = "root";
+        String password = "6IdeJ5SJ9R";
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
